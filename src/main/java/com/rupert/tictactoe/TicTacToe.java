@@ -1,6 +1,6 @@
 package com.rupert.tictactoe;
 
-//UI
+// Setup and & UI
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -19,6 +19,7 @@ public class TicTacToe {
 	public ImageIcon xIcon, oIcon;
 	
 	public void play(int id) {
+		
 		System.out.println("Playing square " + id);
 	}
 	
@@ -27,7 +28,7 @@ public class TicTacToe {
 		frame.setDefaultCloseOperation(3);
 		frame.setVisible(true);
 		frame.setResizable(true);
-		
+		frame.setSize(450,450);
 		JPanel panel = new JPanel();
 		frame.setContentPane(panel);
 		panel.setLayout(new GridLayout(3,3,0,0));
@@ -65,8 +66,8 @@ public class TicTacToe {
 			panel.add(grid[i]);
 			
 		}
-		
-		frame.setSize(450,450);
+	
+		//frame.setSize(450,450);
 		
 	}
 	
@@ -79,4 +80,5 @@ public class TicTacToe {
     	t3.init_components();
     	t3.init_icons();
     }
+    
 }
