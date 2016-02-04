@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -73,6 +75,14 @@ public class TicTacToe {
 	
 	public void init_icons() {
 		
+	/*
+		try{
+		Image x = ImageIO.read(TicTacToe.class.getResource("/x.png"));
+		Image o = ImageIO.read(TicTacToe.class.getResource("/o.png"));
+		}catch(IOException ex) {
+			ex.printStackTrace();
+		}
+	*/
 	}
 	
     public static void main( String[] args ) {
