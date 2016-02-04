@@ -17,7 +17,7 @@ public class GameEngineTest {
 	
 	@Test
 	public void zeroConverts0() {
-		assertEquals(0, engine.check(0)); 
+		assertEquals(0, engine.placeCheck(0)); 
 	}
 	
 }
