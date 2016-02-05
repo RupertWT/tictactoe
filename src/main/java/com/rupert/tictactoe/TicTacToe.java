@@ -1,8 +1,9 @@
 package com.rupert.tictactoe;
 
-// Setup and & UI
+// Start new game and initialise board
 
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
@@ -20,11 +21,52 @@ public class TicTacToe {
 	public JButton[] grid = new JButton[9];
 	public ImageIcon xIcon, oIcon;
 	
-	public void play(int id) {
+	public int[] board = new int[9];
+	public boolean won = false;
+	public int currentPlayer = 1;
 		
+	
+	// Play action, initiates attemptChange, checks for winning move then updates player
+	public void play(int id) {
 		System.out.println("Playing square " + id);
+		
+		if(attemptChange(id)) {
+			currentPlayer = (currentPlayer == 1) ? 2 : 1;
+			checkWin();
+		}
 	}
 	
+	
+	// Checks if position already full, and fills position with current player's icon
+	public boolean attemptChange(int square) {
+		if (board[square] != 0) {
+			return false;
+		}
+		board[square] = currentPlayer;
+		grid[square].setIcon(currentPlayer==1? xIcon : oIcon);
+		return true;
+	}
+	
+	
+	
+	public void checkWin() {
+		// move to another class
+	}
+	
+	
+	
+	public void win() {
+		// move to another class
+	}
+	
+	
+	
+	public void draw() {
+		// move to another class
+	}
+	
+	
+	// Initialise frame & buttons, listen for button clicks
 	public void init_components() {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(3);
@@ -36,20 +78,15 @@ public class TicTacToe {
 		panel.setLayout(new GridLayout(3,3,0,0));
 		
 		panel.addComponentListener(new ComponentListener() {
-
 			public void componentResized(ComponentEvent e) {
 				init_icons();
 			}
-
 			public void componentMoved(ComponentEvent e) {	
 			}
-
 			public void componentShown(ComponentEvent e) {	
 			}
-
 			public void componentHidden(ComponentEvent e) {
-			}
-			
+			}		
 		});
 		
 		for (int i = 0; i < 9; i++){
@@ -63,32 +100,39 @@ public class TicTacToe {
 					play(id);
 				}
 				
-			});
+			});	
 			
-			panel.add(grid[i]);
-			
-		}
-	
-		//frame.setSize(450,450);
-		
+			panel.add(grid[i]);		
+		}	
+		//frame.setSize(450,450);		
 	}
 	
+	
+	// Initialise Icons, images res file, images scaled to button size
 	public void init_icons() {
 		
-	/*
 		try{
-		Image x = ImageIO.read(TicTacToe.class.getResource("/x.png"));
-		Image o = ImageIO.read(TicTacToe.class.getResource("/o.png"));
+			Image x = ImageIO.read(TicTacToe.class.getResource("/x.png"));
+			Image o = ImageIO.read(TicTacToe.class.getResource("/o.png"));
+			
+			xIcon = new ImageIcon(x.getScaledInstance(grid[0].getWidth(), grid[0].getHeight(),Image.SCALE_SMOOTH));
+			oIcon = new ImageIcon(o.getScaledInstance(grid[0].getWidth(), grid[0].getHeight(),Image.SCALE_SMOOTH));
+			
+			for(int i=0; i<9; i++) {
+				if (grid[i].getIcon() != null) 
+						grid[i].setIcon(board[i] == 1 ? xIcon : oIcon);
+			}
+			
 		}catch(IOException ex) {
 			ex.printStackTrace();
 		}
-	*/
 	}
 	
+	
+	// Starts new game
     public static void main( String[] args ) {
     	TicTacToe t3 = new TicTacToe();
     	t3.init_components();
     	t3.init_icons();
     }
-    
 }
