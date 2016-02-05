@@ -108,7 +108,7 @@ public class TicTacToe {
 	}
 	
 	
-	// Initialise Icons, images res file, images scaled to button size
+	// Initialise Icons, images in res file, images scaled to button size
 	public void init_icons() {
 		
 		try{
