@@ -10,6 +10,13 @@ import com.rupert.tictactoe.GameEngine;
 
 public class GameEngineTest {
     
+//	The Board	
+//	
+//	[0] [1] [2]
+//  [3] [4] [5]
+//  [6] [7] [8]
+	
+	
 	@Rule
     public ExpectedException thrown= ExpectedException.none();
 	
