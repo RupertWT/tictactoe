@@ -50,19 +50,37 @@ public class TicTacToe {
 	
 	
 	public void checkWin() {
-		// move to another class
+		
+//		GameEngine GE = new GameEngine();
+//		boolean status = false;
+//		status = (Boolean) GE.winCheck(board, id);
+//		
+//		if (status == true) {
+//			win(id);
+//		}
+//		
+//		for (int i = 0; i < board.length; i++) {
+//			if (board[i] == 0) {
+//				return;
+//			}
+//		}
+//			
+//		if (status == false) {
+//			draw();
+//		}
+		
 	}
 	
 	
 	
-	public void win() {
-		// move to another class
+	public void win(int id) {
+
 	}
 	
 	
 	
 	public void draw() {
-		// move to another class
+
 	}
 	
 	
