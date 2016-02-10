@@ -2,7 +2,7 @@ package com.rupert.tictactoe;
 
 public class GameEngine {
 
-	public Object winCheck(int[] board) {
+	public static boolean winCheck(int[] board) {
 		
 		//		The Board		
 		//		[0] [1] [2]

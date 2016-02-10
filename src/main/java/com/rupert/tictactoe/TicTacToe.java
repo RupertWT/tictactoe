@@ -14,9 +14,11 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class TicTacToe {
+	
 	
 	public JButton[] grid = new JButton[9];
 	public ImageIcon xIcon, oIcon;
@@ -32,7 +34,7 @@ public class TicTacToe {
 		
 		if(attemptChange(id)) {
 			currentPlayer = (currentPlayer == 1) ? 2 : 1;
-			checkWin();
+			checkWin(id);
 		} 
 	}
 	
@@ -49,38 +51,55 @@ public class TicTacToe {
 	
 	
 	
-	public void checkWin() {
+	public void checkWin(int position) {
 		
-//		GameEngine GE = new GameEngine();
-//		boolean status = false;
-//		status = (Boolean) GE.winCheck(board, id);
-//		
-//		if (status == true) {
-//			win(id);
-//		}
-//		
-//		for (int i = 0; i < board.length; i++) {
-//			if (board[i] == 0) {
-//				return;
-//			}
-//		}
-//			
-//		if (status == false) {
-//			draw();
-//		}
+		if (GameEngine.winCheck(board) == true) {
+			win(position);
+		}
+		
+		for (int i = 0; i < board.length; i++) {
+			if (board[i] == 0) {
+				return;
+			}
+		}
+	
+		draw();
 		
 	}
 	
 	
 	
-	public void win(int id) {
-
+	public void win(int square) {
+		won = true;
+		
+		String winner = board[square] == 1 ? "x" : "o";
+		
+		if(JOptionPane.showConfirmDialog(new JFrame("Winner! Congratulations " + winner), "Player " + winner + "has won! Would you like to play again?") == JOptionPane.YES_OPTION) {
+			restart();
+		} else {
+			System.exit(0);
+		}
+		
 	}
 	
+	public void restart() {
+		won = false;
+		currentPlayer = 1;
+		
+		for (int i = 0; i < 9; i++) {
+			board[i] = 0;
+			grid[i].setIcon(null);
+		}
+		
+	}
 	
 	
 	public void draw() {
-
+		if(JOptionPane.showConfirmDialog(new JFrame("It's a Draw!"), "It's a draw! Would you like to play again?") == JOptionPane.YES_OPTION) {
+			restart();
+		} else {
+			System.exit(0);
+		}
 	}
 	
 	
