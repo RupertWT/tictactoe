@@ -51,12 +51,12 @@ public class TicTacToe {
 	
 	
 	// Checks for a win, if spaces free then continue, else draw
-	public void checkWin(int position) {
+	public void checkWin(int square) {
 		
 		GameEngine engine = new GameEngine();
 		
 		if (engine.winCheck(board) == true) {
-			win(position);
+			win(square);
 		}		
 		
 		for (int i = 0; i < board.length; i++) {
@@ -80,7 +80,6 @@ public class TicTacToe {
 		} else {
 			System.exit(0);
 		}
-		
 	}
 
 	
@@ -93,7 +92,6 @@ public class TicTacToe {
 			board[i] = 0;
 			grid[i].setIcon(null);
 		}
-		
 	}
 	
 	
