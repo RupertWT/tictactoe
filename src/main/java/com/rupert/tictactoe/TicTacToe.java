@@ -114,7 +114,7 @@ public class TicTacToe {
 	
 	
 	
-	// Checks if position already full, and fills position with current player's icon
+	// Checks if position already full, and if not it fills position with current player's icon
 	public boolean attemptChange(int square) {
 		if (board[square] != 0) {
 			return false;
@@ -126,7 +126,7 @@ public class TicTacToe {
 	
 	
 	
-	// Checks for a win, if spaces free then continue, else draw
+	// Checks for a win, if no win and spaces left then continue, else draw
 	public void checkWin(int square) {
 		
 		GameEngine engine = new GameEngine();
