@@ -50,25 +50,24 @@ public class TicTacToe {
 	}
 	
 	
-	
+	// Checks for a win, if spaces free then continue, else draw
 	public void checkWin(int position) {
 		
 		if (GameEngine.winCheck(board) == true) {
 			win(position);
-		}
+		}		
 		
 		for (int i = 0; i < board.length; i++) {
 			if (board[i] == 0) {
 				return;
 			}
 		}
-	
-		draw();
 		
+		draw();		
 	}
 	
 	
-	
+	// win scenario
 	public void win(int square) {
 		won = true;
 		
@@ -81,7 +80,9 @@ public class TicTacToe {
 		}
 		
 	}
+
 	
+	// reset board
 	public void restart() {
 		won = false;
 		currentPlayer = 1;
@@ -94,6 +95,7 @@ public class TicTacToe {
 	}
 	
 	
+	// draw scenario
 	public void draw() {
 		if(JOptionPane.showConfirmDialog(new JFrame("It's a Draw!"), "It's a draw! Would you like to play again?") == JOptionPane.YES_OPTION) {
 			restart();
