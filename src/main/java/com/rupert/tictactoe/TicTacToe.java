@@ -24,6 +24,7 @@ public class TicTacToe {
 	public int[] board = new int[9];
 	public boolean won = false;
 	public int currentPlayer = 1;
+	public boolean cpu = false;
 		
 	
 	
@@ -108,8 +109,30 @@ public class TicTacToe {
 		
 		if(attemptChange(id)) {
 			currentPlayer = (currentPlayer == 1) ? 2 : 1;
+			System.out.println(currentPlayer);
 			checkWin(id);
 		} 
+		
+		if(cpu == true && currentPlayer == 2) {
+			computerPlay(board);
+		}
+		
+	}
+	
+	
+	
+	// if CPU == true & it's player 2's turn then use AI to find O's move
+	public void computerPlay(int[] cpuBoard) {
+		System.out.println("Computer Move");
+		
+		ComputerPlayer cpuPlayer = new ComputerPlayer();
+		int cpuPlayerInt = cpuPlayer.move(cpuBoard);
+			
+		board[cpuPlayerInt] = 2;
+		grid[cpuPlayerInt].setIcon(oIcon);
+		checkWin(cpuPlayerInt);
+		currentPlayer = 1;
+		
 	}
 	
 	
