@@ -20,13 +20,14 @@ import javax.swing.JPanel;
 public class TicTacToe {
 	
 	
+	
 	public JButton[] grid = new JButton[9];
 	public ImageIcon xIcon, oIcon;
-	
 	public int[] board = new int[9];
 	public boolean won = false;
 	public int currentPlayer = 1;
 		
+	
 	
 	// Play action, initiates attemptChange, checks for winning move then updates player
 	public void play(int id) {
@@ -39,6 +40,7 @@ public class TicTacToe {
 	}
 	
 	
+	
 	// Checks if position already full, and fills position with current player's icon
 	public boolean attemptChange(int square) {
 		if (board[square] != 0) {
@@ -48,6 +50,7 @@ public class TicTacToe {
 		grid[square].setIcon(currentPlayer==1? xIcon : oIcon);
 		return true;
 	}
+	
 	
 	
 	// Checks for a win, if spaces free then continue, else draw
@@ -69,6 +72,7 @@ public class TicTacToe {
 	}
 	
 	
+	
 	// win scenario
 	public void win(int square) {
 		won = true;
@@ -76,15 +80,27 @@ public class TicTacToe {
 		String winner = board[square] == 1 ? "x" : "o";
 		
 		if(JOptionPane.showConfirmDialog(new JFrame("Winner! Congratulations " + winner), "Player " + winner + " has won! Would you like to play again?") == JOptionPane.YES_OPTION) {
-			restart();
+			reset();
 		} else {
 			System.exit(0);
 		}
 	}
 
 	
+	
+	// draw scenario
+	public void draw() {
+		if(JOptionPane.showConfirmDialog(new JFrame("It's a Draw!"), "It's a draw! Would you like to play again?") == JOptionPane.YES_OPTION) {
+			reset();
+		} else {
+			System.exit(0);
+		}
+	}
+
+	
+	
 	// reset board
-	public void restart() {
+	public void reset() {
 		won = false;
 		currentPlayer = 1;
 		
@@ -94,15 +110,6 @@ public class TicTacToe {
 		}
 	}
 	
-	
-	// draw scenario
-	public void draw() {
-		if(JOptionPane.showConfirmDialog(new JFrame("It's a Draw!"), "It's a draw! Would you like to play again?") == JOptionPane.YES_OPTION) {
-			restart();
-		} else {
-			System.exit(0);
-		}
-	}
 	
 	
 	// Initialise frame & buttons, listen for button clicks
@@ -147,6 +154,7 @@ public class TicTacToe {
 	}
 	
 	
+	
 	// Initialise Icons, images in res file, images scaled to button size
 	public void init_icons() {
 		
@@ -166,6 +174,7 @@ public class TicTacToe {
 			ex.printStackTrace();
 		}
 	}
+	
 	
 	
 	// Starts new game
