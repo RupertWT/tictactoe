@@ -3,7 +3,6 @@ package com.rupert.tictactoe;
 public class ComputerPlayer {
 
 	public int move(int[] board) {
-	
 		
 		for (int i = 0; i < 9; i++) {
 			if (board[i] == 0) {

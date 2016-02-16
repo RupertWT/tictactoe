@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -24,7 +25,7 @@ public class TicTacToe {
 	public int[] board = new int[9];
 	public boolean won = false;
 	public int currentPlayer = 1;
-	public boolean cpu = false;
+	public boolean cpu = true;
 		
 	
 	
@@ -43,7 +44,7 @@ public class TicTacToe {
  		frame.setDefaultCloseOperation(3);
  		frame.setVisible(true);
  		frame.setResizable(true);
- 		frame.setSize(450,450);
+ 		//frame.setSize(450,450);
  		JPanel panel = new JPanel();
  		frame.setContentPane(panel);
  		panel.setLayout(new GridLayout(3,3,0,0));
