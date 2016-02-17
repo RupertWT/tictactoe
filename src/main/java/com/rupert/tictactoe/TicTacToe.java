@@ -29,7 +29,7 @@ public class TicTacToe {
 		
 	
 	
-	// Starts new game
+//	Starts new game
     public static void main( String[] args ) {
     	TicTacToe t3 = new TicTacToe();
     	t3.init_components();
@@ -38,13 +38,13 @@ public class TicTacToe {
    
     
     
-    // Initialise frame & buttons, listen for button clicks
+//  Initialise frame & buttons, listen for button clicks
  	public void init_components() {
  		JFrame frame = new JFrame();
  		frame.setDefaultCloseOperation(3);
  		frame.setVisible(true);
  		frame.setResizable(true);
- 		//frame.setSize(450,450);
+// 		frame.setSize(450,450);
  		JPanel panel = new JPanel();
  		frame.setContentPane(panel);
  		panel.setLayout(new GridLayout(3,3,0,0));
@@ -82,7 +82,7 @@ public class TicTacToe {
     
  	
  	
-	// Initialise Icons, images in res file, images scaled to button size
+//	Initialise Icons, images in res file, images scaled to button size
 	public void init_icons() {
 		
 		try{
@@ -104,7 +104,7 @@ public class TicTacToe {
     
     	
 	
-	// Play action, initiates attemptChange, checks for winning move then updates player
+//	Play action, initiates attemptChange, checks for winning move then updates player
 	public void play(int id) {
 		System.out.println("Playing square " + id);
 		
@@ -122,7 +122,7 @@ public class TicTacToe {
 	
 	
 	
-	// if CPU == true & it's player 2's turn then use AI to find O's move
+//	if CPU == true & it's player 2's turn then use AI to find O's move
 	public void computerPlay(int[] cpuBoard) {
 		System.out.println("Computer Move");
 		
@@ -138,7 +138,7 @@ public class TicTacToe {
 	
 	
 	
-	// Checks if position already full, and if not it fills position with current player's icon
+//	Checks if position already full, and if not it fills position with current player's icon
 	public boolean attemptChange(int square) {
 		if (board[square] != 0) {
 			return false;
@@ -150,7 +150,7 @@ public class TicTacToe {
 	
 	
 	
-	// Checks for a win, if no win and spaces left then continue, else draw
+//	Checks for a win, if no win and spaces left then continue, else draw
 	public void checkWin(int square) {
 		
 		GameEngine engine = new GameEngine();
@@ -170,7 +170,7 @@ public class TicTacToe {
 	
 	
 	
-	// win scenario
+//	win scenario
 	public void win(int square) {
 		won = true;
 		
@@ -185,7 +185,7 @@ public class TicTacToe {
 
 	
 	
-	// draw scenario
+//	draw scenario
 	public void draw() {
 		if(JOptionPane.showConfirmDialog(new JFrame("It's a Draw!"), "It's a draw! Would you like to play again?") == JOptionPane.YES_OPTION) {
 			reset();
@@ -196,7 +196,7 @@ public class TicTacToe {
 
 	
 	
-	// reset board
+//	reset board
 	public void reset() {
 		won = false;
 		currentPlayer = 1;

@@ -8,10 +8,10 @@ import org.junit.rules.ExpectedException;
 
 public class GameEngineTest {
     
-	// The Board	
-	// [0] [1] [2]
-	// [3] [4] [5]
-	// [6] [7] [8]
+//	The Board	
+//	[0] [1] [2]
+//	[3] [4] [5]
+//	[6] [7] [8]
 	
 	
 	@Rule

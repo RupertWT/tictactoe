@@ -4,12 +4,12 @@ public class GameEngine {
 
 	public boolean winCheck(int[] board) {
 		
-		// The Board		
-		// [0] [1] [2]
-		// [3] [4] [5]
-		// [6] [7] [8]
+//		The Board		
+//		[0] [1] [2]
+//		[3] [4] [5]
+//		[6] [7] [8]
 		
-		// Horizontal Wins
+//		Horizontal Wins
 		if ( board[0] == board[1]  &&  board[1]  ==  board[2] && board[2] != 0) {
 			return true;
 		}
@@ -20,7 +20,7 @@ public class GameEngine {
 			return true;
 		}
 		
-		// Vertical Wins
+//		Vertical Wins
 		if ( board[0] == board[3]  &&  board[3]  ==  board[6] && board[6] != 0) {
 			return true;
 		}
@@ -31,7 +31,7 @@ public class GameEngine {
 			return true;
 		}
 		
-		// Diagonal Wins
+//		Diagonal Wins
 		if ( board[0] == board[4]  &&  board[4]  ==  board[8] && board[8] != 0) {
 			return true;
 		}
