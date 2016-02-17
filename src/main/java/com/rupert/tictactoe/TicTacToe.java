@@ -28,7 +28,7 @@ public class TicTacToe {
 	
 	
 //	Starts new game
-    public static void main( String[] args ) {
+	public static void main( String[] args ) {
     	TicTacToe t3 = new TicTacToe();   	
     	t3.cpuCheck();
     	t3.init_components();
@@ -38,7 +38,7 @@ public class TicTacToe {
     
     
 //	Ask if player wants to play against the computer
-    public void cpuCheck() {
+	public void cpuCheck() {
     	if(JOptionPane.showConfirmDialog(new JFrame("Play the computer?"), "Would you like to play the computer?") == JOptionPane.YES_OPTION) {
 			cpu = true;
 		} else {
@@ -49,7 +49,7 @@ public class TicTacToe {
     
     
 //  Initialise frame & buttons, listen for button clicks
- 	public void init_components() {
+	public void init_components() {
  		JFrame frame = new JFrame();
  		frame.setDefaultCloseOperation(3);
  		frame.setVisible(true);
@@ -132,7 +132,7 @@ public class TicTacToe {
 	
 	
 	
-//	if CPU == true & it's player 2's turn then use AI to find O's move
+//	If CPU == true & it's player 2's turn then use AI to find O's move
 	public void computerPlay(int[] cpuBoard) {
 		
 		ComputerPlayer cpuPlayer = new ComputerPlayer();
