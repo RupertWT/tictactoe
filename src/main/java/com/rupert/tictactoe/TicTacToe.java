@@ -115,14 +115,14 @@ public class TicTacToe {
     	
 	
 //	Play action, initiates attemptChange, checks for winning move then updates player
-	public void play(int id) {
+	public void play(int square) {
 		
-		if(attemptChange(id)) {
-			System.out.println("Player " + currentPlayer + " playing square " + id);
-			board[id] = currentPlayer;
-			grid[id].setIcon(currentPlayer==1? xIcon : oIcon);
+		if(attemptChange(square)) {
+			System.out.println("Player " + currentPlayer + " playing square " + square);
+			board[square] = currentPlayer;
+			grid[square].setIcon(currentPlayer==1? xIcon : oIcon);
 			currentPlayer = (currentPlayer == 1) ? 2 : 1;
-			checkWin(id);
+			checkWin(square);
 		} 
 		
 		if(cpu == true && currentPlayer == 2) {
@@ -136,12 +136,12 @@ public class TicTacToe {
 	public void computerPlay(int[] cpuBoard) {
 		
 		ComputerPlayer cpuPlayer = new ComputerPlayer();
-		int cpuPlayerInt = cpuPlayer.move(cpuBoard);
+		int square = cpuPlayer.move(cpuBoard);
 		
-		System.out.println("Computer playing square " + cpuPlayerInt);	
-		board[cpuPlayerInt] = 2;
-		grid[cpuPlayerInt].setIcon(oIcon);
-		checkWin(cpuPlayerInt);
+		System.out.println("Computer playing square " + square);	
+		board[square] = 2;
+		grid[square].setIcon(oIcon);
+		checkWin(square);
 		currentPlayer = 1;		
 	}
 	
