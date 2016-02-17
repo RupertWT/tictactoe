@@ -23,17 +23,29 @@ public class TicTacToe {
 	public int[] board = new int[9];
 	public boolean won = false;
 	public int currentPlayer = 1;
-	public boolean cpu = true;
+	public static boolean cpu = true;
 		
 	
 	
 //	Starts new game
     public static void main( String[] args ) {
-    	TicTacToe t3 = new TicTacToe();
+    	TicTacToe t3 = new TicTacToe();   	
+    	t3.cpuCheck();
     	t3.init_components();
-    	t3.init_icons();
+    	t3.init_icons();  	
     }
    
+    
+    
+//	Ask if player wants to play against the computer
+    public void cpuCheck() {
+    	if(JOptionPane.showConfirmDialog(new JFrame("Play the computer?"), "Would you like to play the computer?") == JOptionPane.YES_OPTION) {
+			cpu = true;
+		} else {
+			cpu = false;
+		}
+    }
+    
     
     
 //  Initialise frame & buttons, listen for button clicks
@@ -104,34 +116,33 @@ public class TicTacToe {
 	
 //	Play action, initiates attemptChange, checks for winning move then updates player
 	public void play(int id) {
-		System.out.println("Playing square " + id);
 		
 		if(attemptChange(id)) {
+			System.out.println("Player " + currentPlayer + " playing square " + id);
+			board[id] = currentPlayer;
+			grid[id].setIcon(currentPlayer==1? xIcon : oIcon);
 			currentPlayer = (currentPlayer == 1) ? 2 : 1;
-			System.out.println(currentPlayer);
 			checkWin(id);
 		} 
 		
 		if(cpu == true && currentPlayer == 2) {
 			computerPlay(board);
-		}
-		
+		}	
 	}
 	
 	
 	
 //	if CPU == true & it's player 2's turn then use AI to find O's move
 	public void computerPlay(int[] cpuBoard) {
-		System.out.println("Computer Move");
 		
 		ComputerPlayer cpuPlayer = new ComputerPlayer();
 		int cpuPlayerInt = cpuPlayer.move(cpuBoard);
-			
+		
+		System.out.println("Computer playing square " + cpuPlayerInt);	
 		board[cpuPlayerInt] = 2;
 		grid[cpuPlayerInt].setIcon(oIcon);
 		checkWin(cpuPlayerInt);
-		currentPlayer = 1;
-		
+		currentPlayer = 1;		
 	}
 	
 	
@@ -141,8 +152,6 @@ public class TicTacToe {
 		if (board[square] != 0) {
 			return false;
 		}
-		board[square] = currentPlayer;
-		grid[square].setIcon(currentPlayer==1? xIcon : oIcon);
 		return true;
 	}
 	
@@ -168,7 +177,7 @@ public class TicTacToe {
 	
 	
 	
-//	win scenario
+//	Win scenario
 	public void win(int square) {
 		won = true;
 		
@@ -183,7 +192,7 @@ public class TicTacToe {
 
 	
 	
-//	draw scenario
+//	Draw scenario
 	public void draw() {
 		if(JOptionPane.showConfirmDialog(new JFrame("It's a Draw!"), "It's a draw! Would you like to play again?") == JOptionPane.YES_OPTION) {
 			reset();
@@ -194,7 +203,7 @@ public class TicTacToe {
 
 	
 	
-//	reset board
+//	Reset board
 	public void reset() {
 		won = false;
 		currentPlayer = 1;
@@ -203,6 +212,8 @@ public class TicTacToe {
 			board[i] = 0;
 			grid[i].setIcon(null);
 		}
+		
+		cpuCheck();
 	}
 	
 
