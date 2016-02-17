@@ -20,27 +20,64 @@ public class ComputerPlayerTest {
 	ComputerPlayer cpu = new ComputerPlayer();
 	
 	@Test
-	public void computerPlayerFirstMoveOnEmptyBoard() {
-		//		The Board	
-		//		[-] [-] [-]
-		//  	[-] [-] [-]
-		//  	[-] [-] [-]
+	public void computerPlayerMiddleIfAvailable() {
+//			The Board	
+//			[-] [-] [-]
+//		  	[-] [-] [-]
+//		  	[-] [-] [-]
 	    int[] testBoard = new int[9];
-	    assertEquals(0, cpu.move(testBoard)); 
+	    assertEquals(4, cpu.move(testBoard)); 
 	}
+	
+	@Test
+	public void computerPlayerNextFreeSlot() {
+//			The Board	
+//			[x] [-] [-]
+//		  	[-] [o] [x]
+//		  	[-] [-] [-]
+	    int[] testBoard = new int[9];
+	    testBoard[0] = 1;
+	    testBoard[4] = 2; testBoard[5] = 1;
+	    assertEquals(1, cpu.move(testBoard)); 
+	}	
 
 	@Test
-	public void computerPlayerWinningMove() {
-		//		The Board	
-		//		[0] [0] [-]
-		//  	[x] [x] [-]
-		//  	[-] [-] [-]
+	public void computerPlayerWinningMove1() {
+//			The Board	
+//			[o] [o] [-]
+//		  	[x] [x] [-]
+//		  	[x] [-] [-]
 		int[] testBoard = new int[9];
 		testBoard[0] = 2; testBoard[1] = 2; 
 		testBoard[3] = 1; testBoard[4] = 1;
+		testBoard[6] = 1;
 		assertEquals(2, cpu.move(testBoard));
 	}
 	
+	@Test
+	public void computerPlayerWinningMove2() {
+//			The Board	
+//			[o] [x] [-]
+//		  	[o] [x] [x]
+//		  	[-] [-] [-]
+		int[] testBoard = new int[9];
+		testBoard[0] = 2; testBoard[1] = 1; 
+		testBoard[3] = 2; testBoard[4] = 1; testBoard[5] = 1;
+		assertEquals(6, cpu.move(testBoard));
+	}
+
+	@Test
+	public void computerPlayerBlocksLosingMove() {
+//			The Board	
+//			[o] [x] [-]
+//		  	[-] [x] [o]
+//		  	[-] [-] [-]
+		int[] testBoard = new int[9];
+		testBoard[0] = 2; testBoard[1] = 1; 
+		testBoard[4] = 1; testBoard[5] = 2;
+		assertEquals(7, cpu.move(testBoard));
+	}
+		
 }
 
 
