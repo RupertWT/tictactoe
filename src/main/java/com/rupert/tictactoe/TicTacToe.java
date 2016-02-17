@@ -39,7 +39,7 @@ public class TicTacToe {
     
 //	Ask if player wants to play against the computer
 	public void cpuCheck() {
-    	if(JOptionPane.showConfirmDialog(new JFrame("Play the computer?"), "Would you like to play the computer?") == JOptionPane.YES_OPTION) {
+    	if(JOptionPane.showConfirmDialog(new JFrame("Play the computer?"), "Would you like to play against the computer?") == JOptionPane.YES_OPTION) {
 			cpu = true;
 		} else {
 			cpu = false;
