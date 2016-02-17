@@ -48,7 +48,7 @@ public class TicTacToe {
     
     
     
-//  Initialise frame & buttons, listen for button clicks
+//	Initialise frame & buttons, listen for button clicks
 	public void init_components() {
  		JFrame frame = new JFrame();
  		frame.setDefaultCloseOperation(3);
